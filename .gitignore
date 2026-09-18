@@ -1,0 +1,12 @@
+# Credentials - never commit
+client_secret*.json
+token.json
+.config/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local data dumps
+*_raw.json
+sleep*.json

@@ -1,0 +1,69 @@
+<!--
+  Mobile-first email template for the morning sleep report.
+  Send via Gmail `send_message` using `htmlBody` (NOT `body`), plus a short plain-text `body` fallback.
+  Rules: keep all styles inline (Gmail strips <style>); one column, max 560px; no images, no JS.
+  Replace every {{PLACEHOLDER}} (LABEL_* = UI labels in the reader's language; drop the charts link if you have no CHARTS_URL). Repeat the METRIC ROW block once per metric (5–7 rows).
+  In clock times put a word joiner between hours and minutes: 04&#8288;:53 — stops iOS/Gmail from turning times into blue links.
+  DELTA_COLOR: #1a7f37 good, #b8650a worse/attention, #6f7890 neutral. VERDICT_BG: #e7f5ea good day, #fdf1e3 mixed, #fbe9e9 bad.
+-->
+<div style="margin:0;padding:0;background:#f3f5fa;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f5fa;">
+<tr><td align="center" style="padding:16px 12px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:12px;border:1px solid #dde2ec;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:#131a2c;">
+
+  <!-- header -->
+  <tr><td style="padding:20px 20px 6px 20px;">
+    <div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6f7890;">{{DATE_LONG}} · {{SOURCE}}</div>
+    <div style="font-size:34px;line-height:1.1;font-weight:700;margin-top:6px;">{{SLEEP_DURATION}}</div>
+    <div style="font-size:15px;color:#4a536b;margin-top:4px;">{{BEDTIME}} → {{WAKETIME}}</div>
+  </td></tr>
+
+  <!-- verdict -->
+  <tr><td style="padding:12px 20px 4px 20px;">
+    <div style="background:{{VERDICT_BG}};border-radius:8px;padding:12px 14px;font-size:15px;line-height:1.5;">{{SUMMARY_1_2_SENTENCES}}</div>
+  </td></tr>
+
+  <!-- metrics -->
+  <tr><td style="padding:14px 20px 4px 20px;">
+    <div style="font-size:13px;font-weight:600;color:#6f7890;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">{{LABEL_NIGHT_NUMBERS}}</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:15px;">
+      <!-- METRIC ROW (repeat) -->
+      <tr>
+        <td style="padding:9px 0;border-bottom:1px solid #eef0f5;color:#4a536b;">{{METRIC_LABEL}}</td>
+        <td align="right" style="padding:9px 0;border-bottom:1px solid #eef0f5;white-space:nowrap;">
+          <b>{{METRIC_VALUE}}</b><br>
+          <span style="font-size:12.5px;color:{{DELTA_COLOR}};">{{METRIC_DELTA_OR_NORM}}</span>
+        </td>
+      </tr>
+      <!-- /METRIC ROW -->
+    </table>
+    <div style="font-size:12.5px;color:#6f7890;margin-top:8px;line-height:1.45;">{{SOURCE_NOTE_OPTIONAL}}</div>
+  </td></tr>
+
+  <!-- schedule progress -->
+  <tr><td style="padding:14px 20px 4px 20px;">
+    <div style="font-size:13px;font-weight:600;color:#6f7890;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">{{LABEL_SCHEDULE}}</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;text-align:center;">
+      <tr>
+        <td style="padding:8px 4px;background:#f3f5fa;border-radius:8px 0 0 8px;"><div style="color:#6f7890;font-size:12px;">{{LABEL_TODAY}}</div><b style="font-size:17px;">{{BED_TODAY}}</b></td>
+        <td style="padding:8px 4px;background:#f3f5fa;"><div style="color:#6f7890;font-size:12px;">{{LABEL_WEEK_AVG}}</div><b style="font-size:17px;">{{BED_WEEK_AVG}}</b></td>
+        <td style="padding:8px 4px;background:#f3f5fa;border-radius:0 8px 8px 0;"><div style="color:#6f7890;font-size:12px;">{{LABEL_TARGET}}</div><b style="font-size:17px;">{{BED_TARGET}}</b></td>
+      </tr>
+    </table>
+    <div style="font-size:14px;color:#4a536b;margin-top:8px;line-height:1.5;">{{PROGRESS_ONE_LINE}}</div>
+  </td></tr>
+
+  <!-- tip -->
+  <tr><td style="padding:14px 20px 4px 20px;">
+    <div style="border-left:3px solid #b8650a;padding:4px 0 4px 12px;font-size:15px;line-height:1.5;"><b>{{LABEL_TIP}}</b> {{ONE_CONCRETE_TIP}}</div>
+  </td></tr>
+
+  <!-- footer -->
+  <tr><td style="padding:16px 20px 20px 20px;font-size:12.5px;color:#6f7890;line-height:1.5;">
+    <a href="{{CHARTS_URL}}" style="color:#2a5bd7;">{{LABEL_CHARTS}}</a> · {{LABEL_DISCLAIMER}}
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</div>
