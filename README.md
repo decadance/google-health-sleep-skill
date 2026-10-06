@@ -157,7 +157,7 @@ python sleep-report/scripts/fetch_sleep.py --days 30 > sleep.json
 
 In the Claude desktop app you can create a **scheduled task** (e.g. every day at 09:00) with a prompt like:
 
-> Use the `sleep-report` skill: fetch 14 days, analyze last night against the 14-day average (compare HR/HRV only within the same source), and send me a short email via the Gmail connector to *&lt;your address&gt;* with subject `Sleep <date>: <duration>, <verdict>`. Fill `sleep-report/email_template.html` and pass it as `htmlBody`. If fetch exits with code 4, only email me that Google Health access needs renewing. If last night hasn't synced yet, say so.
+> Use the `sleep-report` skill: fetch 14 days, analyze last night against the 14-day average (compare HR/HRV only within the same source), and send me a short email via the Gmail connector to *&lt;your address&gt;* with subject `Sleep <date>: <duration>, <verdict>`. Fill `sleep-report/email_template.html` and pass it as `htmlBody`. If fetch exits with code 4, only email me that Google Health access needs renewing. If last night hasn't synced yet, say so. If wrist temperature is ≥ +0.5 °C above baseline two nights in a row, add a highlighted warning (and mention whether breathing rate and resting HR are up too).
 
 Pick a time when your phone has already synced the night. Scheduled tasks run while the app is open.
 

@@ -47,6 +47,7 @@ Credentials live outside the skill folder: `~/.config/google-health/client_secre
    - **Stages** (% of time asleep): typical adult ranges — deep ~13–23%, REM ~20–25%, light ~50–60%. Wrist trackers estimate stages from HR and motion — it is an estimate, not polysomnography; look at trends, not single nights.
    - **Efficiency:** `efficiency_pct` (≥ 85% is normal), wake bouts and short awakenings.
    - **Recovery:** resting HR, HRV, breathing rate, SpO2, temperature — trend over the period and link to bad nights (HRV below personal median + RHR above → under-recovered; temperature + breathing rate jump → body may be fighting something).
+   - **Temperature:** wrist trackers measure *skin* temperature (~33–35 °C), so the absolute value means little — use the deviation `nightlyTemperatureCelsius − baselineTemperatureCelsius` from `daily-sleep-temperature-derivations`. Flag it only when the deviation is **≥ +0.5 °C two nights in a row**; then check whether breathing rate and resting HR are also above the personal average (all three up → possibly getting sick; temperature alone → maybe a warm room or heavy blanket). A single cold night (−0.5…−1 °C) is usually a loose band or a cool room.
    - **Correlations, only with ≥ 10 nights:** late bedtime → less deep sleep? late workouts (`exercise` ending < 3 h before bed) → worse efficiency / higher RHR? weekends vs weekdays. Claim a link only if the numbers show it, with a small-sample caveat.
    - **Last night** — a short separate block compared to the personal average.
 
